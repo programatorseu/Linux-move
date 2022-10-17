@@ -147,4 +147,26 @@ sudo apt install git-all
 
 - reduce swap use
 
-  
+- Tableplus
+# Add TablePlus repo
+`sudo add-apt-repository "deb [arch=amd64] https://deb.tableplus.com/debian/22 tableplus main"`
+
+# Install
+```bash sudo apt update
+sudo apt install tableplus```
+
+- PowerLine for Bash
+`sudo add-apt-repository universe`
+`sudo apt install --yes powerline`
+
+edit `$HOME/.bashrc`
+```bash
+# Powerline configuration
+if [ -f /usr/share/powerline/bindings/bash/powerline.sh ]; then
+  powerline-daemon -q
+  POWERLINE_BASH_CONTINUATION=1
+  POWERLINE_BASH_SELECT=1
+  source /usr/share/powerline/bindings/bash/powerline.sh
+fi
+```
+source it :)
