@@ -152,8 +152,10 @@ sudo apt install git-all
 `sudo add-apt-repository "deb [arch=amd64] https://deb.tableplus.com/debian/22 tableplus main"`
 
 # Install
-```bash sudo apt update
-sudo apt install tableplus```
+```bash
+sudo apt update
+sudo apt install tableplus
+```
 
 - PowerLine for Bash
 `sudo add-apt-repository universe`
