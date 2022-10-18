@@ -1,0 +1,49 @@
+{
+    "Public method": {
+     "prefix": "met",
+     "body": [
+      "public function $1() ",
+      "{",
+      "\t$2",
+      "}"
+     ],
+     "description": ""
+    },
+    "Class": {
+     "prefix": "class",
+     "body": [
+      "class ${TM_FILENAME_BASE} {",
+      "\t$2",
+      "}"
+     ],
+     "description": "New class"
+    },
+    "TestPhpUnit": {
+     "prefix": "@test",
+     "body": [
+      "/** @test */",
+      "public function $1() ",
+      "{",
+      "\t$2",
+      "}"
+     ],
+     "description": "create test inside phpunit"
+    },
+    "$this": {
+     "prefix": "$",
+     "body": [
+      "$$this->$1"
+     ],
+     "description": "Php scope operator"
+   },
+   "static method": {
+       "prefix": "smet",
+       "body": [
+           "public static function $1($2) ",
+           "{",
+           "\t$3",
+           "}"
+       ],
+       "description": "static method creator"
+   }
+   }
