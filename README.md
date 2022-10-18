@@ -94,7 +94,7 @@ composer create-project --prefer-dist laravel/laravel blog "5.8.*"
 sudo apt install ./code_1.61.2-1634656828_amd64.deb
 ```
 
-**settings**
+**settings** -> check settings.json
 
 ### 5. Install python
 
