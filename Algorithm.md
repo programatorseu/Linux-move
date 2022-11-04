@@ -2,7 +2,6 @@
 
 ## 1. Algorithm Analysis
 
-https://btholt.github.io/complete-intro-to-computer-science/
 
 ### 1.1 Big O Time Complexity
 
