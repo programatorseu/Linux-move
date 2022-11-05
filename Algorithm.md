@@ -3,6 +3,7 @@
 ## 1. Algorithm Analysis
 
 
+
 ### 1.1 Big O Time Complexity
 
 - how efficient an algorithm is from broad perspective / not getting into details
@@ -594,4 +595,190 @@ const mergeSort = (nums) => {
 
 
 
-## 
+### 3.4 Quick sort
+
+merge sort is stable - average case scenario is good
+
+quick sort better in terms of spatial complexity 
+
+- divide and conquer recursive algorithm
+
+> take the last element and call them pivot 
+>
+> - 1. everythings that is smaller than the pivot gets put into "left" / greater to the "right"
+> - 2. then call quick on left and right lists 
+> - 3. concatenate 2 sorted list 
+
+
+
+> [4,9,3,5] 
+>
+> 5 -> pivo
+>
+> [4,3] and [9]  --> 2 lists
+>
+> ## call quick sort on those lists : 
+>
+> [4,3] 
+>
+> ​	=> 3 is pivot
+>
+> ​	=> quick sort on [] and [4]
+>
+> concat [], 3 and [4]
+>
+> return [3,4]
+>
+> concat on [3,4] 5, [9]
+>
+> ```text
+> -> return [3,4,5,9]
+> ```
+
+
+
+**big O**
+
+- best case scenario : randomly sorted list  - pivots will tend to be more in the middle O(n log n)
+- worst case scenario : sorted list - pivot always be the largset number in array (left array would always be full and right array empty) - will compare every number against every other so we'd end up with O(n²
+
+ be O(n). We'll be creating new arrays for each recursive call. T
+
+```js
+function quickSort(nums) {
+    if (nums.length <= 1) return nums;
+    const pivot = nums[nums.length -1];
+    const left = []
+    const right = [];
+    for (let i = 0; i < nums.length -1; i++) {
+        if (nums[i] < pivot) {
+            left.push(nums[i]);
+        } else {
+            right.push(nums[i]);
+        }
+    }
+    return [...quickSort(left), pivot, ...quickSort(right)];
+}
+```
+
+
+
+## 4. Non-comparison Sorts
+
+### 4.1 Radix Sort
+
+ non-comparing
+
+we compare places ? 
+
+```bash
+[109, 224, 901, 58]
+[90*1*, 22*4*, 5*8*, 10*9*]
+[9*0*1, 109, 224, 58].
+[58, 109, 224, 901]
+```
+
+mechanism is bucket! 
+
+for base doing a positive integer radix sort
+
+- create 10 buckets (0-9)
+- loop d times (d = max length of longest number in array) if longest number in array is `90932` then `5` times
+
+
+
+```js
+function getDigit(number, place, longestNumber) {
+    const string = number.toString();
+    const size = string.length;
+  
+    const mod = longestNumber - size;
+    return string[place - mod] || 0;
+  }
+  
+  function findLongestNumber(array) {
+    let longest = 0;
+    for (let i = 0; i < array.length; i++) {
+      const currentLength = array[i].toString().length;
+      longest = currentLength > longest ? currentLength : longest;
+    }
+    return longest;
+  }
+  
+  function radixSort(array) {
+    const longestNumber = findLongestNumber(array);
+    const buckets = new Array(10).fill().map(() => []); // make an array of 10 arrays
+  
+    for (let i = longestNumber - 1; i >= 0; i--) {
+      while (array.length) {
+        const current = array.shift();
+        buckets[getDigit(current, i, longestNumber)].push(current);
+      }
+  
+      for (let j = 0; j < 10; j++) {
+        while (buckets[j].length) {
+          array.push(buckets[j].shift());
+        }
+      }
+    }
+  
+    return array;
+  }
+  
+```
+
+## 5. Binary Search
+
+search - looking for particular element in array 
+
+ -> instead of doing a whole array, we're just looking for one element in an array.
+
+lineary search - > go from - to length of array and ask is this element i'm looking for ? 
+
+complexity is O(n)
+
+**binary search** => only works if array is already sorted 
+
+we open in the middle and we go in one of direction
+
+```js
+[0, 5, 10, 12, 15, 19, 21, 22, 24, 30]
+// search for 11
+// middle 19 == 12 ? no smaller go left 
+// middle 10 == 12 ? larger go right 
+// 12 == 12 ? yes found it  
+```
+
+```js
+function linearSearch(id, array) {
+    for (let i = 0; i < array.length; i++) {
+      if (id === array[i].id) {
+        return array[i];
+      }
+    }
+    return void 0;
+  }
+
+  function binarySearch(id, array) {
+    let min = 0;
+    let max = array.length - 1;
+    let index;
+    let element;
+  
+    while (min <= max) {
+      index = Math.floor((min + max) / 2);
+      element = array[index];
+  
+      if (element.id < id) {
+        min = index + 1;
+      } else if (element.id > id) {
+        max = index - 1;
+      } else {
+        return element;
+      }
+    }
+  
+    return void 0;
+  }
+```
+
