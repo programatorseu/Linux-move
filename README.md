@@ -178,3 +178,22 @@ gsettings set org.gnome.shell.extensions.dash-to-dock background-opacity 0.8
 ```
 
 https://github.com/spxak1/weywot/blob/main/guides/mxkeys_linux.md
+
+## Hyperline
+
+```https://releases.hyper.is/download/deb```
+lokalizacja  config hyper by default `~/.hyper.js `
+pluginy
+```js
+    plugins: [
+        "hyperline",
+        "hyperpower",
+        "hyper-font-ligatures",
+        "hyper-one-dark",
+        "hyper-pane",
+        "hyper-search",
+        "hypercwd",
+        "hyper-active-tab"
+    ],
+```
+
