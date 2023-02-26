@@ -172,3 +172,9 @@ if [ -f /usr/share/powerline/bindings/bash/powerline.sh ]; then
 fi
 ```
 source it :)
+
+```
+gsettings set org.gnome.shell.extensions.dash-to-dock background-opacity 0.8
+```
+
+https://github.com/spxak1/weywot/blob/main/guides/mxkeys_linux.md
