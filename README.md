@@ -3,7 +3,7 @@
 ## 1. Install PHP / Apache / Mysql
 
 like always to make sure everything is updated 
-- PopOS issue with repor (brak mb_string) PHP 8.2
+-  issue with (brak mb_string) PHP 8.2
 ```
 apt-get install php-mbstring 
 ```
